@@ -1,8 +1,5 @@
 // import '../styles/main.scss'; // You have to import your styles for them to work. Comment in this line
 
-const students = [];
-const voldysArmy = []; // starts as an empty array
-
 const renderToDOM = (divId, content) => {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = content;
@@ -87,31 +84,6 @@ const filterBtnRow = () => {
   renderToDOM('#filter-container', domString);
 };
 
-// ********** LOGIC  ********** //
-
-const houses = [
-  {
-    house: 'gryffindor',
-    crest:
-      'https://static.wikia.nocookie.net/pottermore/images/1/16/Gryffindor_crest.png'
-  },
-  {
-    house: 'slytherin',
-    crest:
-      'https://static.wikia.nocookie.net/pottermore/images/4/45/Slytherin_Crest.png'
-  },
-  {
-    house: 'hufflepuff',
-    crest:
-      'https://static.wikia.nocookie.net/pottermore/images/5/5e/Hufflepuff_crest.png'
-  },
-  {
-    house: 'ravenclaw',
-    crest:
-      'https://static.wikia.nocookie.net/pottermore/images/4/4f/Ravenclaw_crest.png'
-  }
-];
-
 // Create a new ID for the students
 const createId = (array) => {
   if (array.length) {
@@ -119,27 +91,6 @@ const createId = (array) => {
     return Math.max(...idArray) + 1;
   }
   return 0;
-};
-
-// sorts student to a house and then place them in the students array
-const sortStudent = (e) => {
-  e.preventDefault();
-  const sortingHat = houses[Math.floor(Math.random() * houses.length)];
-
-  if (e.target.id === 'sorting') {
-    const student = document.querySelector('#student-name');
-
-    // create the new student object
-    students.push({
-      id: createId(students),
-      name: student.value,
-      house: sortingHat.house,
-      crest: sortingHat.crest
-    });
-
-    student.value = ''; // reset value of input
-    studentsOnDom('#students', students);
-  }
 };
 
 // add form to DOM on start-sorting click.
