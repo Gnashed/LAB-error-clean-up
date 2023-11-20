@@ -1,4 +1,4 @@
-import renderToDOM from "../utils/renderToDOM";
+import renderToDOM from '../utils/renderToDOM';
 
 const header = () => {
   const domString = `<div class="container">
